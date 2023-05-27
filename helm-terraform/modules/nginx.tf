@@ -7,10 +7,14 @@ resource "helm_release" "nginx-ingress" {
 
   set {
     name  = "controller.replicaCount"
-    value = "3"
+    value = "1"
   }
   set {
     name  = "controller.service.type"
     value = "LoadBalancer"
+  }
+  set {
+    name = "controller.service.externalTrafficPolicy"
+    value = "Local"
   }
 }

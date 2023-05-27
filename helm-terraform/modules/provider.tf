@@ -17,8 +17,8 @@ provider "azurerm" {
 }
 
 data "azurerm_kubernetes_cluster" "main" {
-  name                = "DevOps-cluster"
-  resource_group_name = "devops-rg"
+  name                = "demo-cluster"
+  resource_group_name = "demo-rg"
 }
 
 provider "helm" {
