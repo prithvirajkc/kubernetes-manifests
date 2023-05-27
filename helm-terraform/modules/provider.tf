@@ -10,6 +10,13 @@ terraform {
       version = ">3.0.0"
     }
   }
+  cloud {
+    organization = "DevOps_project"
+
+    workspaces {
+      name = "Helm_charts"
+    }
+  }
 }
 
 provider "azurerm" {
