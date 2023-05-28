@@ -36,7 +36,9 @@ steps:
       
       git commit -m "updating tag $(tag)"
 
-      git push -u origin main
+      git log --graph 
+
+      git remote -v
 
 
 
