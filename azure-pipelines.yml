@@ -30,6 +30,8 @@ steps:
 
       git config --global user.name "Prithvi Raj"
 
+      git remote add origin https://github.com/prithvirajkc/kubernetes-manifests.git
+
       git init 
 
       git add . 
