@@ -1,5 +1,14 @@
 trigger: none
 
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '5c348824-825f-4004-a841-5ccd8b0eb3cd'
+  imageRepository: 'flaskwebapp'
+  containerRegistry: 'devopsacr5c6ma.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+
 # app-ci YAML pipeline
 # We are setting up a pipeline resource that references the security-lib-ci
 # pipeline and setting up a pipeline completion trigger so that our app-ci
@@ -11,4 +20,14 @@ resources:
     trigger: true # Run app-ci pipeline when any run of security-lib-ci completes
 
 steps:
-- bash: echo "app-ci runs after security-lib-ci completes"
+- bash: echo "Update-yaml-manifests after Flask-Webapp-CI completes"
+- task: CmdLine@2
+  inputs:
+    script: 'sed -i "s#docker0498*#$(containerRegistry)/$(imageRepository):$(tag)#g" deployment.yaml'
+
+
+
+ 
+
+
+
