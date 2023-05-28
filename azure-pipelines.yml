@@ -36,7 +36,7 @@ steps:
       
       git commit -m "updating tag $(tag)"
 
-      git push
+      git push -u origin all
 
 
 
