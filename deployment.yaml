@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-webapp 
-          image: docker0498/flask-new
+          image: devopsacr5c6ma.azurecr.io/flaskwebapp:34
           resources: {} 
           ports:
             - containerPort: 5000
