@@ -28,9 +28,7 @@ steps:
     script: |
       git config --global user.email "prithviraj1998@hotmail.com"
 
-      git config --global user.name "Prithvi Raj"
-
-      git remote add origin https://github.com/prithvirajkc/kubernetes-manifests.git
+      git config --global user.name "prithvirajkc"
 
       git init 
 
@@ -38,7 +36,7 @@ steps:
       
       git commit -m "updating tag $(tag)"
 
-      git push origin 
+      git push origin HEAD:main
 
 
 
