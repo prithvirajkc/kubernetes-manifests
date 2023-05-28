@@ -26,9 +26,17 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      git config --global user.email "prithviraj1998@hotmail.com"
+
+      git config --global user.name "Prithvi Raj"
+
+      git init 
+
       git add . 
       
       git commit -m "updating tag $(tag)"
+
+      git push -u origin main
 
 
 
