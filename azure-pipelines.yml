@@ -23,6 +23,12 @@ steps:
 - bash: echo "Update-yaml-manifests after Flask-Webapp-CI completes"
 - bash: ls -l
 - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
+- task: CmdLine@2
+  inputs:
+    script: |
+      git add . 
+      
+      git commit -m "updating tag $(tag)"
 
 
 
