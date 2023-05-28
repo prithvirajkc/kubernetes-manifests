@@ -22,9 +22,8 @@ resources:
 steps:
 - bash: echo "Update-yaml-manifests after Flask-Webapp-CI completes"
 - bash: ls -l
-- task: CmdLine@2
-  inputs:
-    script: 'sed -i "s#docker0498*#$(containerRegistry)/$(imageRepository):$(tag)#g" deployment.yaml'
+- bash: "sed 's#docker0498*#$(containerRegistry)/$(imageRepository):$(tag)#g deployment.yaml'"
+
 
 
 
