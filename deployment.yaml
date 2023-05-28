@@ -18,6 +18,19 @@ spec:
           resources: {} 
           ports:
             - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              port: 5000
+              path: /
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 5000
+              path: /
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            
 
           
           
