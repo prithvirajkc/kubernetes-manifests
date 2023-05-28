@@ -17,3 +17,7 @@ spec:
                 name: grafana
                 port: 
                   number: 80
+  tls:
+  - hosts:
+    - graph.kubeprithvi.com
+    secretName: graph-secret
