@@ -16,3 +16,7 @@ spec:
                 name: python-svc
                 port: 
                   number: 5000
+  tls:
+  - hosts:
+    - app.kubeprithvi.com
+    secretName: app-secret 

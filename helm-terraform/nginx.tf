@@ -14,7 +14,7 @@ resource "helm_release" "nginx-ingress" {
     value = "LoadBalancer"
   }
   set {
-    name = "controller.service.externalTrafficPolicy"
+    name  = "controller.service.externalTrafficPolicy"
     value = "Local"
   }
 }
