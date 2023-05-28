@@ -19,24 +19,30 @@ resources:
     source: Flask-Webapp-CI # The name of the pipeline referenced by this pipeline resource.
     trigger: true # Run app-ci pipeline when any run of security-lib-ci completes
 
-steps:
-- bash: echo "Update-yaml-manifests after Flask-Webapp-CI completes"
-- bash: ls -l
-- bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
-- task: CmdLine@2
-  inputs:
-    script: |
-      git config --global user.email "prithviraj1998@hotmail.com"
+jobs:
+- job: CommitJob
+  displayName: 'Commit to GitHub'
+  pool:
+    vmImage: 'ubuntu-latest'
 
-      git config --global user.name "prithvirajkc"
+  steps:
+  - checkout: self
 
-      git init 
+  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
+  - task: CmdLine@2
+    inputs:
+      script: |
+        git config --global user.email "prithviraj1998@hotmail.com"
 
-      git add . 
+        git config --global user.name "prithvirajkc"
+
+        git init 
+
+        git add . 
       
-      git commit -m "updating tag $(tag)"
+        git commit -m "updating tag $(tag)"
 
-      git push origin HEAD:main
+        git push origin HEAD:main
 
 
 
