@@ -1,24 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana-ingress
+  name: argocd-nginx
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt
-  namespace: monitoring  
+  namespace: argocd  
 spec:
   rules:
-    - host: graph.kubeprithvi.com
-      http:
+     - host: deployment.kubeprithvi.com
+       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: grafana
+                name: argocd-server
                 port: 
                   number: 80
   tls:
   - hosts:
-    - graph.kubeprithvi.com
-    secretName: graph-secret
+    - deployment.kubeprithvi.com
+    secretName: deployment-secret 

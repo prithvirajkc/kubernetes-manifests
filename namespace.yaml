@@ -2,13 +2,19 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: monitoring
+  labels:
+    cert-manager.io/disable-validation: true
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: argocd
+  labels:
+    cert-manager.io/disable-validation: true
 --- 
 apiVersion: v1
 kind: Namespace
 metadata:
   name: ingress-nginx
+  labels:
+    cert-manager.io/disable-validation: true
