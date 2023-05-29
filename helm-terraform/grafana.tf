@@ -4,5 +4,9 @@ resource "helm_release" "grafana" {
   chart      = "grafana"
   namespace  = "monitoring"
   depends_on = [helm_release.nginx-ingress]
+  set {
+    name = "adminPassword"
+    value = "admin"
+  }
 }
  
