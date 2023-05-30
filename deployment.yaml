@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-webapp 
-          image: devopsacr4t5lo.azurecr.io/flaskwebapp:$(date +%Y%m%d_%M)37
+          image: devopsacr4t5lo.azurecr.io/flaskwebapp:100$(date +%Y%m%d_%M)37
           resources: {} 
           ports:
             - containerPort: 5000
