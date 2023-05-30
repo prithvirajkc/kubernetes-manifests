@@ -6,7 +6,8 @@ variables:
   imageRepository: 'flaskwebapp'
   containerRegistry: 'devopsacr4t5lo.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  date: $(date +%Y%m%d_%M)
+  major: 1
+  minor: $[counter(variables['major'], 100)]
 
 
 
@@ -30,7 +31,7 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#$(containerRegistry)/$(imageRepository):*#$(containerRegistry)/$(imageRepository):$(date)#g' deployment.yaml"
+  - bash: "sed -i 's#$(containerRegistry)/$(imageRepository):*#$(containerRegistry)/$(imageRepository):$(minor)#g' deployment.yaml"
 
   - task: CmdLine@2
     inputs:
@@ -44,7 +45,7 @@ jobs:
 
         git add . 
       
-        git commit -m "updating tag $(date)"
+        git commit -m "updating tag $(minor)"
 
         git push origin HEAD:main
 
