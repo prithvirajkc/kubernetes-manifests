@@ -30,7 +30,7 @@ jobs:
     persistCredentials: true
 
 #  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
-  - bash: echo "$(date + %Y%m%d_%H%M)"
+  - bash: echo "$(tag)"
 #  - task: CmdLine@2
 #    inputs:
 #      script: |
