@@ -31,13 +31,13 @@ jobs:
     persistCredentials: true
 
 #  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
-  - task: CmdLine@2
-    inputs:
-      script: |
-        echo $(tag)
-        
-        $newtag=${{ variables.tag - 1 }}
-        echo $newtag
+#  - task: CmdLine@2
+#    inputs:
+#      script: |
+#        echo $(tag)
+#        
+#        $newtag=${{ variables.tag - 1 }}
+#        echo $newtag
 #  - task: CmdLine@2
 #    inputs:
 #      script: |
