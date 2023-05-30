@@ -6,7 +6,8 @@ variables:
   imageRepository: 'flaskwebapp'
   containerRegistry: 'devopsacr4t5lo.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  newtag: $[sub(variables['Build.BuildId'], 1)]
+
 
 
 # app-ci YAML pipeline
