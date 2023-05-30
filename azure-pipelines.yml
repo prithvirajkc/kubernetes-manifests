@@ -31,7 +31,7 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#$(containerRegistry)/$(imageRepository):*$(date +%Y%m%d_%M)37#$(containerRegistry)/$(imageRepository):$(minor)#g' deployment.yaml"
+  - bash: "sed -i 's#devopsacr4t5lo.azurecr.io/flaskwebapp:100$(date +%Y%m%d_%M)37#$(containerRegistry)/$(imageRepository):$(minor)#g' deployment.yaml"
 
   - task: CmdLine@2
     inputs:
