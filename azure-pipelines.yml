@@ -33,6 +33,8 @@ jobs:
   - task: CmdLine@2
     inputs:
       script: |
+        $newtag = ${{ variables.tag - 1 }}
+
         git config --global user.email "prithviraj1998@hotmail.com"
 
         git config --global user.name "prithvirajkc"
@@ -43,7 +45,7 @@ jobs:
       
         git commit -m "updating tag $(tag)"
 
-        git push origin HEAD:main
+      #  git push origin HEAD:main
 
 
 
