@@ -34,7 +34,8 @@ jobs:
     inputs:
       script: |
         echo $(tag)
-        newtag=$((tag-1))
+        num=1
+        newtag=$((tag-num))
         echo $newtag
 #  - task: CmdLine@2
 #    inputs:
