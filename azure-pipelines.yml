@@ -35,7 +35,7 @@ jobs:
       script: |
         echo $(tag)
         
-        newtag=${{ variables.tag-1 }}
+        newtag=${{ variables.tag - 1 }}
         echo $newtag
 #  - task: CmdLine@2
 #    inputs:
