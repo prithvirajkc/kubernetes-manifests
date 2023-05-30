@@ -8,7 +8,7 @@ metadata:
   namespace: monitoring  
 spec:
   rules:
-    - host: graph.kubeprithvi.com
+    - host: chart.kubeprithvi.com
       http:
         paths:
           - path: /
@@ -20,5 +20,5 @@ spec:
                   number: 80
   tls:
   - hosts:
-    - graph.kubeprithvi.com
+    - chart.kubeprithvi.com
     secretName: graph-secret
