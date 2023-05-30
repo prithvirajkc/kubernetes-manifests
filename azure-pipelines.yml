@@ -30,7 +30,7 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
+  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(date)#g' deployment.yaml"
 
   - task: CmdLine@2
     inputs:
@@ -44,7 +44,7 @@ jobs:
 
         git add . 
       
-        git commit -m "updating tag $(tag)"
+        git commit -m "updating tag $(date)"
 
         git push origin HEAD:main
 
