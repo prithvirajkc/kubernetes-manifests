@@ -29,22 +29,22 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
-  - task: CmdLine@2
-    inputs:
-      script: |
-        newtag = ${{ variables.tag - 1 }}
+#  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
+  - bash: echo date
+#  - task: CmdLine@2
+#    inputs:
+#      script: |
 
-        git config --global user.email "prithviraj1998@hotmail.com"
-
-        git config --global user.name "prithvirajkc"
-
-        git init 
-
-        git add . 
-      
-        git commit -m "updating tag $(tag)"
-
+#        git config --global user.email "prithviraj1998@hotmail.com"
+#
+#        git config --global user.name "prithvirajkc"
+#
+#        git init 
+#
+#        git add . 
+#      
+#        git commit -m "updating tag $(tag)"
+#
       #  git push origin HEAD:main
 
 
