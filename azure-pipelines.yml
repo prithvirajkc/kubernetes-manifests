@@ -33,7 +33,7 @@ jobs:
   - task: CmdLine@2
     inputs:
       script: |
-        $newtag = ${{ variables.tag - 1 }}
+        newtag = ${{ variables.tag - 1 }}
 
         git config --global user.email "prithviraj1998@hotmail.com"
 
