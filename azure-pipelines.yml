@@ -6,7 +6,7 @@ variables:
   imageRepository: 'flaskwebapp'
   containerRegistry: 'devopsacr4t5lo.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$((Build.BuildId-1))'
+  tag: '$(Build.BuildId)'
 
 
 # app-ci YAML pipeline
@@ -34,8 +34,8 @@ jobs:
     inputs:
       script: |
         echo $(tag)
-        num=1
-        newtag=$((tag-num))
+        
+        newtag=${{ variables.tag-1 }}
         echo $newtag
 #  - task: CmdLine@2
 #    inputs:
