@@ -6,7 +6,7 @@ variables:
   imageRepository: 'flaskwebapp'
   containerRegistry: 'devopsacr4t5lo.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  newtag: $[sub(variables['Build.BuildId'], 1)]
+  date: $(date +%Y%m%d_%M)
 
 
 
@@ -30,29 +30,23 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-#  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
-#  - task: CmdLine@2
-#    inputs:
-#      script: |
-#        echo $(tag)
-#        
-#        $newtag=${{ variables.tag - 1 }}
-#        echo $newtag
-#  - task: CmdLine@2
-#    inputs:
-#      script: |
+  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(tag)#g' deployment.yaml"
 
-#        git config --global user.email "prithviraj1998@hotmail.com"
-#
-#        git config --global user.name "prithvirajkc"
-#
-#        git init 
-#
-#        git add . 
-#      
-#        git commit -m "updating tag $(tag)"
-#
-      #  git push origin HEAD:main
+  - task: CmdLine@2
+    inputs:
+      script: |
+
+        git config --global user.email "prithviraj1998@hotmail.com"
+
+        git config --global user.name "prithvirajkc"
+
+        git init 
+
+        git add . 
+      
+        git commit -m "updating tag $(tag)"
+
+        git push origin HEAD:main
 
 
 
