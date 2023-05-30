@@ -30,7 +30,7 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#docker0498/flask-new#$(containerRegistry)/$(imageRepository):$(date)#g' deployment.yaml"
+  - bash: "sed -i 's#*/flask:*#$(containerRegistry)/$(imageRepository):$(date)#g' deployment.yaml"
 
   - task: CmdLine@2
     inputs:
