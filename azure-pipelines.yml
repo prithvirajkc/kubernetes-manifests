@@ -6,7 +6,7 @@ variables:
   imageRepository: 'flaskwebapp'
   containerRegistry: 'devopsacr4t5lo.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  major: 1
+  major: 2
   minor: $[counter(variables['major'], 100)]
 
 
