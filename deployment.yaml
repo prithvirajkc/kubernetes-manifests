@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-webapp 
-          image: devopsacrbavli.azurecr.io/flaskapp:104
+          image: devopsacrbavli.azurecr.io/flaskapp:100
           resources: {} 
           ports:
             - containerPort: 5000
