@@ -2,11 +2,12 @@ trigger: none
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '135dc7df-87cd-475e-a125-95704ca72cb9'
-  imageRepository: 'flaskwebapp'
-  containerRegistry: 'devopsacr4t5lo.azurecr.io'
+  dockerRegistryServiceConnection: 'b89f55d2-2d92-4699-b97a-4f295401317b'
+  imageRepository: 'flaskapp'
+  containerRegistry: 'devopsacrbavli.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  major: 2
+  tag: '$(Build.BuildId)'
+  major: 1
   minor: $[counter(variables['major'], 100)]
 
 
