@@ -7,7 +7,7 @@ variables:
   containerRegistry: 'devopsacrbavli.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  major: 2
+  major: 3
   minor: $[counter(variables['major'], 100)]
 
 
@@ -32,7 +32,7 @@ jobs:
   - checkout: self
     persistCredentials: true
 
-  - bash: "sed -i 's#devopsacr4t5lo.azurecr.io.*#$(containerRegistry)/$(imageRepository):$(minor)#g' deployment.yaml"
+  - bash: "sed -i 's#$(containerRegistry).*#$(containerRegistry)/$(imageRepository):$(minor)#g' deployment.yaml"
 
   - task: CmdLine@2
     inputs:
